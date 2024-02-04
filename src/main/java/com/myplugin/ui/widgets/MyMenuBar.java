@@ -36,8 +36,8 @@ public class MyMenuBar extends JMenuBar {
     private void openActionPerformed(ActionEvent e) {
         new OpenFileCommand(project, file -> {
             FileDecompressionService decompressionService = new FileDecompressionService();
-            Task.Backgroundable task = new DecompressTask(project, "Decompressing File", file.toNioPath().toFile(), decompressionService, uiUpdater);
-            task.queue(); // 将任务加入队列以异步执行
+            Task.Backgroundable task = new DecompressTask(project, "Decompressing File", file, decompressionService, uiUpdater);
+            task.queue();
         }).execute();
     }
 }
